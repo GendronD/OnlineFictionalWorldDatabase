@@ -1,0 +1,23 @@
+<!--Form to add new character to database-->
+<form action="/addCharacter" method="post">
+    <div>
+        <label>First Name:</label>
+        <input type="text" name="firstname" required />
+    </div>
+    <div>
+        <label>Last Name:</label>
+        <input type="text" name="lastname" required />
+    </div>
+    <div>
+        <label>Description:</label>
+        <input type="text" name="description" required />
+    </div>
+    <div>
+        {{#each characters}}
+        <input type="hidden" name="univID" value="{{univID}}">
+        {{/each}}
+    </div>
+    <div>
+        <input type="submit" value="addCharacter" />
+    </div>
+</form>
