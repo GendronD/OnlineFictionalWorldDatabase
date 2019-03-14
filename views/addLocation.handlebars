@@ -1,0 +1,19 @@
+<!--Form to add new location to database-->
+<form action="/addLocation" method="post">
+    <div>
+        <label>Location Name:</label>
+        <input type="text" name="locName" required />
+    </div>
+    <div>
+        <label>Description:</label>
+        <input type="text" name="locDescription" required />
+    </div>
+    <div>
+        {{#each locations}}
+        <input type="hidden" name="univID" value="{{univID}}">
+        {{/each}}
+    </div>
+    <div>
+        <input type="submit" value="addLocation" />
+    </div>
+</form>
