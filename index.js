@@ -64,6 +64,8 @@ app.use('/sign_up', require('./public/sign_up.js'));
 app.use('/dashboard', require('./public/dashboard.js'));
 app.use('/manageuniverse', require('./public/manageuniverse.js'));
 app.use('/logout', require('./public/logout.js'));
+app.use('/addCharacter', require('./public/addCharacter.js'));
+app.use('/addLocation', require('./public/addLocation.js'));
 
 // Web Pages
 //landing page with log-in
@@ -106,6 +108,14 @@ app.get('/manageuniverse/:univID', function(req, res) {
     res.redirect('manageuniverse/' + req.params.univID);
 });
 
+app.get('/manageuniverse/:univID/addLocation', function(req, res) {
+    res.render('manageuniverse/' + req.params.univID +'/addLocation');
+});
+
+app.get('/addCharacter', function(req, res) {
+    res.render('manageuniverse/' + req.params.univID +'/addCharacter');
+});
+
 app.get('/logout', passport.authenticate('local'), function(req, res) {
     req.logout();
     res.redirect('/');
@@ -129,3 +139,4 @@ app.listen(app.get('port'), function(){
   console.log( 'Express started on http://localhost:' + 
     app.get('port') + '; press Ctrl-C to terminate.' );
 });
+
